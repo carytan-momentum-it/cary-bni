@@ -248,6 +248,14 @@ button{font:inherit;color:inherit}
 .contact .sm{font-family:var(--f-display);font-weight:700;font-size:calc(var(--u)*1.25);color:#cfc6c8;user-select:all}
 .contact a{color:inherit;text-decoration:none;border-bottom:1px solid transparent}
 .contact a:hover{border-color:currentColor}
+.go-chip{display:inline-flex;align-items:center;gap:calc(var(--u)*.4);border-radius:999px;font-weight:900;text-decoration:none;
+  font-size:calc(var(--u)*1.02);padding:calc(var(--u)*.35) calc(var(--u)*1.05);background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--fg);
+  transition:background .25s,transform .25s}
+.go-chip svg{width:1.15em;height:1.15em}
+.go-chip:hover{background:rgba(255,255,255,.16);transform:translateY(-2px)}
+.go-chip.wa{background:var(--yellow);color:var(--ink);border-color:var(--yellow);animation:nudge 2.6s ease-in-out 2.4s infinite}
+@keyframes nudge{0%,80%,100%{transform:none}86%{transform:rotate(-4deg) scale(1.06)}92%{transform:rotate(4deg) scale(1.06)}}
+.contact a.big{border-bottom:1px dashed rgba(255,255,255,.35)}
 .contact .copy{border-color:var(--line);background:rgba(255,255,255,.05);font-size:calc(var(--u)*.95);padding:calc(var(--u)*.25) calc(var(--u)*.9);color:#cfc6c8}
 
 /* ---------- chrome ---------- */
@@ -761,8 +769,8 @@ html:not(.js) .nav,html:not(.js) .hint,html:not(.js) .progress,html:not(.js) .wi
       <p class="thanks-lead r" style="--d:2"><b>有想做小红书的老板</b>，欢迎引荐给 <b>Cary</b></p>
       <h2 class="thanks-big split">谢谢你的时间！</h2>
       <div class="contact r" style="--d:5">
-        <div><span class="big" id="phone">+6012-848 1890</span><button class="copy" type="button" data-copy-from="phone">复制</button></div>
-        <div><span class="sm" id="email">cary.tan@innovatemediatech.my</span><button class="copy" type="button" data-copy-from="email">复制</button></div>
+        <div><a class="big" id="phone" href="https://wa.me/60128481890?text=Hi%20Cary%EF%BC%8C%E6%88%91%E5%9C%A8%20BNI%20%E7%9C%8B%E5%88%B0%E4%BD%A0%E7%9A%84%E5%88%86%E4%BA%AB%EF%BC%8C%E6%83%B3%E4%BA%86%E8%A7%A3%E5%B0%8F%E7%BA%A2%E4%B9%A6%E4%BB%A3%E8%BF%90%E8%90%A5%20%F0%9F%99%8C" target="_blank" rel="noopener">+6012-848 1890</a><a class="go-chip wa" href="https://wa.me/60128481890?text=Hi%20Cary%EF%BC%8C%E6%88%91%E5%9C%A8%20BNI%20%E7%9C%8B%E5%88%B0%E4%BD%A0%E7%9A%84%E5%88%86%E4%BA%AB%EF%BC%8C%E6%83%B3%E4%BA%86%E8%A7%A3%E5%B0%8F%E7%BA%A2%E4%B9%A6%E4%BB%A3%E8%BF%90%E8%90%A5%20%F0%9F%99%8C" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5z"/></svg>WhatsApp</a></div>
+        <div><a class="sm" id="email" href="mailto:cary.tan@innovatemediatech.my?subject=%E6%83%B3%E4%BA%86%E8%A7%A3%E5%B0%8F%E7%BA%A2%E4%B9%A6%E4%BB%A3%E8%BF%90%E8%90%A5%EF%BC%88%E6%9D%A5%E8%87%AA%20BNI%20%E5%88%86%E4%BA%AB%EF%BC%89">cary.tan@innovatemediatech.my</a><a class="go-chip" href="mailto:cary.tan@innovatemediatech.my?subject=%E6%83%B3%E4%BA%86%E8%A7%A3%E5%B0%8F%E7%BA%A2%E4%B9%A6%E4%BB%A3%E8%BF%90%E8%90%A5%EF%BC%88%E6%9D%A5%E8%87%AA%20BNI%20%E5%88%86%E4%BA%AB%EF%BC%89"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5l8.5 6 8.5-6"/></svg>Email</a></div>
         <div><a class="sm" href="https://www.innovatemediatech.my" target="_blank" rel="noopener">www.innovatemediatech.my</a></div>
       </div>
       <p class="credit r" style="--d:6">背景音乐：Walk Around（No Copyright Music）</p>
