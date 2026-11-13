@@ -1437,7 +1437,7 @@ html:not(.js) .sak-spot,html:not(.js) .sak-cap,html:not(.js) .sak-pop,html:not(.
     }
   }
   function tilt(now){
-    if(!pointerSeen||now-lastPointer>4000){ tmx=0; tmy=0; }
+    tmx=0; tmy=0;   // the page itself stays still: no tilt from mouse or phone motion
     mx+=(tmx-mx)*.06; my+=(tmy-my)*.06;
     if(!gate.hidden){ gateIn.style.transform='rotateX('+(-my*8).toFixed(2)+'deg) rotateY('+(mx*12).toFixed(2)+'deg)'; }
     if(cur<0) return;
