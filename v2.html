@@ -1053,6 +1053,42 @@ html:not(.js) .sak-spot,html:not(.js) .sak-cap,html:not(.js) .sak-pop,html:not(.
   .ring-core b{font-size:44px}.ring-core small{font-size:10px}.ring-core i{width:130px}
   .ring-hint{font-size:12px}
 }
+
+/* ==== v15 · chat-bubble pain points, Xiaohongshu likes, gold pen ==== */
+/* 2 · pain points arrive like chat messages: typing dots, then the words */
+.chatfx{position:relative}
+.chatfx.cw{opacity:0!important;animation:none!important}
+.chatfx.ct{opacity:1!important;animation:chatPop .45s cubic-bezier(.3,1.5,.5,1) both!important;color:transparent!important;text-shadow:none!important}
+.chatfx.ct>*{visibility:hidden}
+.chatfx.co{opacity:1!important;animation:chatPop2 .35s cubic-bezier(.3,1.5,.5,1) both!important}
+@keyframes chatPop{from{opacity:0;transform:scale(.6) translateY(10px);transform-origin:0 100%}}
+@keyframes chatPop2{from{transform:scale(.96)}}
+.tdots{position:absolute;left:calc(var(--u,1vw)*1.3);top:50%;translate:0 -50%;display:none;gap:5px;pointer-events:none}
+.chatfx.ct .tdots{display:flex;visibility:visible}
+.tdots i{width:7px;height:7px;border-radius:50%;opacity:.4;animation:tdot 1s ease-in-out infinite}
+.cq .tdots i{background:#fff}.bubble .tdots i{background:#ff8a9c}
+.tdots i:nth-child(2){animation-delay:.15s}.tdots i:nth-child(3){animation-delay:.3s}
+@keyframes tdot{0%,60%,100%{opacity:.35;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
+/* 3 · Xiaohongshu likes float up when a result lands */
+.likefx{position:fixed;z-index:30;pointer-events:none;width:18px;height:18px;margin:-9px;opacity:0;animation:likeUp var(--ld,1.5s) cubic-bezier(.2,.7,.3,1) forwards}
+.likefx svg{width:100%;height:100%;display:block;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+@keyframes likeUp{0%{opacity:0;transform:translate(0,0) scale(.3) rotate(0)}15%{opacity:1;transform:translate(calc(var(--lx)*.2),-12px) scale(1.15) rotate(calc(var(--lr)*.3))}
+  100%{opacity:0;transform:translate(var(--lx),var(--ly)) scale(.8) rotate(var(--lr))}}
+/* 6 · the key line is written in gold light */
+.pen.gp .pc{position:relative}
+.pen.gp.write .pc{animation:gInk .6s ease-out both;animation-delay:calc(var(--i)*90ms + 700ms)}
+.pen.gp.write .pc::after{background:#fff1c4;box-shadow:0 0 8px 2px #ffc061,0 0 18px 6px rgba(255,150,60,.5)}
+@keyframes gInk{0%{opacity:0;color:#fff7dc;text-shadow:0 0 14px #ffd27a,0 0 28px #ff9a3c;filter:blur(3px)}55%{opacity:1;color:#ffe7ad;text-shadow:0 0 10px #ffcf70;filter:none}100%{color:inherit;text-shadow:none}}
+.pen.gp.sealed{animation:none}
+@media (prefers-reduced-motion:reduce){.likefx{display:none}}
+
+/* v16 · word badges for results without a hard number: same gold, one size down */
+.kpi-soft .kv-n{font-family:var(--f-serif);font-size:calc(var(--u)*1.9);letter-spacing:.04em;line-height:1.1}
+@media (max-aspect-ratio:1/1),(max-width:700px){
+  .kpi.kpi-soft{display:flex}
+  .kpi-soft .kv-n{font-size:21px;letter-spacing:.06em;padding-top:4px}
+  .kpi-soft .ks{max-width:112px;text-align:right;line-height:1.3}
+}
 </style>
 </head>
 <body>
@@ -1152,7 +1188,7 @@ html:not(.js) .sak-spot,html:not(.js) .sak-cap,html:not(.js) .sak-pop,html:not(.
         <p class="r" style="--d:4"><b class="y">也懂塔罗牌占卜</b>，会用生命数字学发掘个人天赋</p>
         <div class="key redcard pop" style="--d:6">
           <h3>我成功的关键</h3>
-          <p><b>真诚，不夸大效果。</b>不为成交承诺做不到的事。长期合作靠信任，不靠销售技巧。</p>
+          <p><b class="pen gp">真诚，不夸大效果。</b>不为成交承诺做不到的事。长期合作靠信任，不靠销售技巧。</p>
         </div>
       </div>
     </div>
@@ -1394,7 +1430,7 @@ html:not(.js) .sak-spot,html:not(.js) .sak-cap,html:not(.js) .sak-pop,html:not(.
           <div class="cid"><h3><span>03</span>麦记细蓉</h3><p class="src">Puchong 传统餐饮 · Cold Calling</p><p class="hash">#独立餐厅 #二代接班</p></div>
           <p class="cq flipx" style="--d:5">「试过几个团队，还是找不到对的内容」</p>
           <div class="cbody"><p><i>问题</i>账号视觉凌乱，内容时有时无，没有持续增长</p><p><i>做法</i>统一视觉风格，一步步经营，保持账号稳定输出</p><p class="res"><i>成果</i>账号持续活跃，粉丝关注与互动稳定增长</p></div>
-        <div class="kpi kpi-soft"><span class="num grad kv-n">↗<small></small></span><span class="kl">粉丝与互动稳定增长</span></div></article>
+        <div class="kpi kpi-soft"><span class="num grad kv-n">稳定增长</span><span class="kl">粉丝与互动稳定增长</span><span class="ks">粉丝与互动</span></div></article>
         <article class="crow card r" style="--d:5">
           <div class="cid"><h3><span>04</span>Pawvilion</h3><p class="src">高端宠物酒店 · Referral</p><p class="hash">#宠物店 #Pet Hotel</p></div>
           <p class="cq flipx" style="--d:6">「想宣传，但不知道从哪里开始」</p>
@@ -1447,12 +1483,12 @@ html:not(.js) .sak-spot,html:not(.js) .sak-cap,html:not(.js) .sak-pop,html:not(.
           <div class="cid"><h3><span>08</span>Walnut Cafe</h3><p class="src">中高级 Café · Cold Calling</p><p class="hash">#独立餐厅 #Cafe</p></div>
           <p class="cq flipx" style="--d:3">「预算不多，想先试试小红书」</p>
           <div class="cbody"><p><i>问题</i>对小红书有兴趣，但信心和预算都有限</p><p><i>做法</i>建议合适的博主宣传方案，先小成本试水</p><p class="res"><i>成果</i>用最有限的成本，获得基本推广</p></div>
-        <div class="kpi kpi-soft"><span class="num grad kv-n">低<small>成本</small></span><span class="kl">先小成本试水</span></div></article>
+        <div class="kpi kpi-soft"><span class="num grad kv-n">低成本</span><span class="kl">先小成本试水</span><span class="ks">先小成本试水</span></div></article>
         <article class="crow card r" style="--d:3">
           <div class="cid"><h3><span>09</span>Decasa Lighting</h3><p class="src">灯饰家居展示厅 · Referral</p><p class="hash">#家具 #建材 #Showroom</p></div>
           <p class="cq flipx" style="--d:4">「顾客满意，但没人留评价」</p>
           <div class="cbody"><p><i>问题</i>有稳定顾客和展示厅，但线上口碑不足</p><p><i>做法</i>建立顾客 Review 机制，并给品牌曝光建议</p><p class="res"><i>成果</i>线上口碑更稳定，潜在顾客更信任</p></div>
-        <div class="kpi kpi-soft"><span class="num grad kv-n">口碑<small></small></span><span class="kl">线上口碑更稳定</span></div></article>
+        <div class="kpi kpi-soft"><span class="num grad kv-n">口碑</span><span class="kl">线上口碑更稳定</span><span class="ks">线上口碑更稳定</span></div></article>
         <article class="crow card r hero" style="--d:4">
           <div class="cid"><h3><span>10</span>WE Expo</h3><p class="src">大型亲子展览 · Social Media Story</p><p class="hash">#Expo #商会活动 #Roadshow</p></div>
           <p class="cq flipx" style="--d:5">「活动快到了，宣传怎么排？」</p>
@@ -1646,7 +1682,7 @@ html:not(.js) .sak-spot,html:not(.js) .sak-cap,html:not(.js) .sak-pop,html:not(.
     countEl.innerHTML='<b>'+String(n+1).padStart(2,'0')+'</b> / '+total;
     bar.style.width=((n+1)/total*100)+'%';
     prevB.disabled=n===0; nextB.disabled=n===total-1;
-    countUp(s);
+    countUp(s); if(window.__fxArm) window.__fxArm(s);
     fxMode=(n===0||n===total-1)?'hot':'calm';
     if(G) G.to(n);
     if(n===total-1){ setTimeout(burst,700); setTimeout(chime,700); if(SAK) SAK.replay(); }
@@ -2184,6 +2220,46 @@ void main(){vec2 q=gl_PointCoord-.5;float a=smoothstep(.5,0.0,length(q));a*=a;a*
   })();
 
 
+
+  // ---- v15 · chat-bubble pain points and Xiaohongshu likes on results ----
+  (function(){
+    if(reduce) return;
+    const heart='<svg viewBox="0 0 24 24"><path fill="#ff2e4d" d="M12 21s-7.5-4.6-9.6-9.2C.8 8.2 3 4.5 6.6 4.5c2.1 0 3.6 1.2 5.4 3.2 1.8-2 3.3-3.2 5.4-3.2 3.6 0 5.8 3.7 4.2 7.3C19.5 16.4 12 21 12 21z"/></svg>';
+    const star='<svg viewBox="0 0 24 24"><path fill="#ffc94a" d="M12 2.8l2.8 6 6.5.7-4.9 4.4 1.4 6.4L12 17l-5.8 3.3 1.4-6.4L2.7 9.5l6.5-.7z"/></svg>';
+    function likes(el){ const r=el.getBoundingClientRect(); if(!r.width||r.bottom<0||r.top>innerHeight) return;
+      for(let i=0;i<7;i++){ const s=document.createElement('span'); s.className='likefx'; s.innerHTML=i%3===2?star:heart;
+        s.style.left=(r.left+r.width*(.35+Math.random()*.5))+'px'; s.style.top=(r.top+r.height*.4)+'px';
+        s.style.setProperty('--lx',((Math.random()-.4)*70).toFixed(0)+'px'); s.style.setProperty('--ly',(-70-Math.random()*70).toFixed(0)+'px');
+        s.style.setProperty('--lr',((Math.random()-.5)*50).toFixed(0)+'deg'); s.style.setProperty('--ld',(1.2+Math.random()*.7).toFixed(2)+'s');
+        s.style.animationDelay=(i*70)+'ms'; document.body.appendChild(s); setTimeout(()=>s.remove(),2600); }
+      if(window.__sPop) window.__sPop(); }
+    const chats=[...document.querySelectorAll('.bubble')];
+    chats.forEach(c=>{ c.classList.add('chatfx'); const d=document.createElement('span'); d.className='tdots'; d.setAttribute('aria-hidden','true'); d.innerHTML='<i></i><i></i><i></i>'; c.appendChild(d); });
+    let run=0;
+    const io=('IntersectionObserver' in window)?new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting&&e.target._go){ const f=e.target._go; e.target._go=null; io.unobserve(e.target); f(); } }),{threshold:.55}):null;
+    function when(el,f){ if(io){ el._go=f; io.unobserve(el); io.observe(el); } else f(); }
+    const dOf=(el,k)=>parseFloat(getComputedStyle(el).getPropertyValue('--d'))||k;
+    window.__fxArm=s=>{
+      const id=++run, phone=narrowMQ.matches;
+      chats.forEach(c=>{ if(!s.contains(c)) c.classList.remove('cw','ct','co'); });
+      const list=[...s.querySelectorAll('.chatfx')];
+      if(phone){
+        list.forEach(c=>{ c.classList.remove('ct','co'); c.classList.add('cw'); });
+        const play=i=>{ const c=list[i]; if(!c||id!==run) return;
+          when(c,()=>setTimeout(()=>{ if(id!==run) return; c.classList.remove('cw'); c.classList.add('ct');
+            setTimeout(()=>{ if(id!==run) return; c.classList.remove('ct'); c.classList.add('co'); if(window.__sPop) window.__sPop();
+              setTimeout(()=>play(i+1),500); },1200); },i?0:250)); };
+        play(0); return;
+      }
+      list.forEach((c,k)=>{
+        c.classList.remove('ct','co'); c.classList.add('cw');
+        const d=dOf(c,k), t0=c.classList.contains('bubble')?(d-6)*330+600:d*110+250;
+        when(c,()=>{ setTimeout(()=>{ if(id!==run) return; c.classList.remove('cw'); c.classList.add('ct');
+          setTimeout(()=>{ if(id!==run) return; c.classList.remove('ct'); c.classList.add('co'); if(window.__sPop) window.__sPop(); },750); },phone?150:t0); });
+      });
+    };
+  })();
+
   // ---- v6: contact sphere in 3D: an orbit round Cary on desktop, a turning drum on phones ----
   (function(){
     const list=document.querySelector('#s10 .others'); if(!list) return;
@@ -2384,6 +2460,9 @@ void main(){vec2 q=gl_PointCoord-.5;float a=smoothstep(.5,0.0,length(q));a*=a;a*
       ramp(0,.4); setTimeout(()=>{ if(!soundOn) A().pause(); }, ac?450:0);
     }
   }
+  window.__sPop=()=>{ if(!soundOn||!ac) return; const t=ac.currentTime, o=ac.createOscillator(), g=ac.createGain(); o.type='sine';
+    o.frequency.setValueAtTime(520,t); o.frequency.exponentialRampToValueAtTime(980,t+.07); g.gain.setValueAtTime(.0001,t); g.gain.exponentialRampToValueAtTime(.16,t+.01); g.gain.exponentialRampToValueAtTime(.0001,t+.14);
+    o.connect(g); g.connect(sfx); o.start(t); o.stop(t+.16); };
   function whoosh(dir){
     if(!soundOn||!ac) return;
     const t=ac.currentTime, len=.85;
